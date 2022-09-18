@@ -5,6 +5,14 @@ VisualStudioVersion = 17.2.32408.312
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TinkeringWithTinker", "TinkeringWithTinker\TinkeringWithTinker.pyproj", "{CCD2626D-C931-4889-B4D8-64A86FE6422A}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PlayingWithADB", "PlayingWithADB\PlayingWithADB.pyproj", "{E7937377-6EB3-44F4-BE62-EE7586B7A4CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. sln", "1. sln", "{E63DA3E1-28AD-4C4C-9A6B-51AA1C0D292D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +21,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CCD2626D-C931-4889-B4D8-64A86FE6422A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CCD2626D-C931-4889-B4D8-64A86FE6422A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7937377-6EB3-44F4-BE62-EE7586B7A4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7937377-6EB3-44F4-BE62-EE7586B7A4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
