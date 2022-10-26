@@ -1,4 +1,3 @@
-from operator import truediv
 from stack import Stack
 import pytest
 
