@@ -1,0 +1,55 @@
+'Author: Andrew Bounds
+'Last Edit: 2022-10-26
+@startuml Add Numbers
+title Add Numbers
+header Last Edit: 2022-10-26
+
+Actor       User                as user
+participant "CalculatorUI()"    as ui
+participant "Calculator()"      as calc
+participant "EquationValue()"   as eqval
+participant "Equation()\nTop Level"         as eq
+participant "EquationResult()"  as eqres
+participant "EquationHistory()" as eqhst
+
+'Inital User Input
+user -> ui ++ : Enter First Number
+user -> ui : Enter Plus (+) Operator
+user -> ui : Enter Second Number
+user -> ui : Request Result\n(Equals [=] Operator)
+
+'Equation Handling
+calc ++
+ui -> calc : internal EquationResult\nOnEqualsPressed(\nstring rawEquation);
+
+calc ++
+calc -> eq ** : Build Equation\nw/ Values
+
+eq ++
+
+eq -> eqval ** : Create Value A
+eq -> eqval : Save Number A
+eq -> eqval ** : Create Value B
+eq -> eqval : Save Number B
+
+eq --
+calc --
+
+calc -> eq ++ : public EquationResult\nSolve();
+
+eq -> eqres ** : Create Equation\nResult
+
+eq -> calc --++ : Return Equation Result
+eq --
+
+calc -> eqhst ++ : Add Result to History
+eqhst--
+
+calc -> ui --++ : Deliver Equation Result
+calc --
+calc --
+
+ui -> user -- : Display Result\nOr Errors
+ui --
+
+@enduml

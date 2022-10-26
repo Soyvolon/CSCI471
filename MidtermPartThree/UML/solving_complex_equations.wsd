@@ -1,0 +1,67 @@
+'Author: Andrew Bounds
+'Last Edit: 2022-10-26
+@startuml Solving Complex Equations
+title Solving Complex Equations
+header Last Edit: 2022-10-26
+
+Actor       User                            as user
+participant "CalculatorUI()"                as ui
+participant "Calculator()"                  as calc
+participant "EquationValue()"               as eqval
+participant "Equation()\nTop Level"         as eq
+participant "EquationResult()"              as eqres
+participant "EquationHistory()"             as eqhst
+
+'Inital User Input
+loop While Equation\nIs Not Inputed
+    user -> ui ++ : Enter Number
+    group Operator Needed
+        user -> ui : Enter Operator
+    end
+end
+
+user -> ui : Request Result\n(Equals [=] Operator)
+
+'Equation Handling
+calc ++
+ui -> calc : internal EquationResult\nOnEqualsPressed(\nstring rawEquation);
+calc ++
+
+calc -> eq ** : Build Equation\nw/ Values
+eq ++
+
+loop While Equation is\nMore Than 1 Operation
+    eq -> eqval ** : Create Value Objects
+    group Input Is Number
+        eq -> eqval : Save Number
+    else
+        eq -> eqval : Save Equation
+    end
+end
+
+eq --
+calc --
+
+calc -> eq ++ : public EquationResult\nSolve();
+
+loop While EquationValues\nAre Not Numbers
+    eq -> eqval ++ : public EquationResult\nCalculate();
+
+    eqval -> eqres ** : Build Equation\nResult
+    eqval -> eq --++ : Return Equation\nResult
+end
+
+eq -> calc --++ : Return Equation Result
+eq --
+
+calc -> eqhst ++ : Add Result to History
+eqhst--
+
+calc -> ui --++ : Deliver Equation Result
+calc --
+calc --
+
+ui -> user -- : Display Result\nOr Errors
+ui --
+
+@enduml
