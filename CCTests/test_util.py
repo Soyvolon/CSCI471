@@ -38,6 +38,10 @@ class TestLeapYear(unittest.TestCase):
         res = Util.leap_year(4444)
         assert res == "leap year"
 
+    def test_100_and_4_divide(self):
+        res = Util.leap_year(200)
+        assert res == "not a leap year"
+
     def test_4_not_divide(self):
         res = Util.leap_year(1135)
         assert res == "not a leap year"
